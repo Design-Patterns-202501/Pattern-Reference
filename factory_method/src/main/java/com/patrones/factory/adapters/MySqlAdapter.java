@@ -9,7 +9,7 @@ import com.patrones.utils.PropsUtil;
 
 
 public class MySqlAdapter implements IAdapter {
-    private static final String DB_PROPS = "properties/";
+    private static final String DB_PROPS = "properties/mysql.properties";
 
 
     // Props names for MySQL connection

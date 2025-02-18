@@ -1,7 +1,6 @@
 package com.patrones.factory.adapters;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 import java.util.Properties;
 
 import com.patrones.factory.interfaces.IAdapter;
@@ -9,7 +8,7 @@ import com.patrones.utils.PropsUtil;
 
 public class PostgresqlAdapter implements IAdapter {
 
-    private static final String DB_PROPS = "properties/";
+    private static final String DB_PROPS = "properties/postgresql.secret.properties";
 
 
     // Props names for MySQL connection
@@ -19,14 +18,6 @@ public class PostgresqlAdapter implements IAdapter {
     private static final String PORT = "port";
     private static final String USER = "user";
 
-
-    static {
-        try {
-            new org.postgresql.Driver();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     private String createConnectionString() {
         Properties props = PropsUtil.loadPropertyFile(DB_PROPS);
@@ -39,6 +30,15 @@ public class PostgresqlAdapter implements IAdapter {
         System.out.println("Connection String ==> " + connectionString);
 
         return connectionString;
+    }
+
+    static {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Paso algo con el HP driver");
+        }
     }
 
     @Override

@@ -10,7 +10,7 @@ import com.patrones.utils.PropsUtil;
 
 public class DatabaseFactory {
 
-   private static final String DB_FACTORY_PROPS_URL = "resources/";
+   private static final String DB_FACTORY_PROPS_URL = "properties/factory.properties";
    // Props name
    private static final String DEFAULT_CLASS = "defaultClass";
     
