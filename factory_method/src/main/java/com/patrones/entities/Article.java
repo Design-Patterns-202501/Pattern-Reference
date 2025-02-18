@@ -1,4 +1,4 @@
-package entities;
+package com.patrones.entities;
 
 public class Article {
     private Long id;
@@ -21,4 +21,9 @@ public class Article {
 
     public Double getValue() { return this.value; };
     public void setValue(Double value) { this.value = value; };
+
+    @Override
+    public String toString() {
+        return "Articulo id: " + this.id.toString();
+    }
 };
