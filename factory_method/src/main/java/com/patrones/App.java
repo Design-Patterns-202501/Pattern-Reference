@@ -1,5 +1,4 @@
 package com.patrones;
-
 /**
  * Hello world!
  */
