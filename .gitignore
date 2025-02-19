@@ -6,3 +6,4 @@ target/
 .settings/
 
 *.secret.*
+dependency-reduced-pom.xml

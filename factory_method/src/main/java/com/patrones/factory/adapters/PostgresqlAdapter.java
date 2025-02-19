@@ -8,6 +8,16 @@ import com.patrones.utils.PropsUtil;
 
 public class PostgresqlAdapter implements IAdapter {
 
+
+    static {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Paso algo con el HP driver");
+        }
+    }
+
     private static final String DB_PROPS = "properties/postgresql.secret.properties";
 
 
@@ -24,31 +34,22 @@ public class PostgresqlAdapter implements IAdapter {
         String host = props.getProperty(HOST);
         String port = props.getProperty(PORT);
         String service = props.getProperty(SERVICE);
+        String user = props.getProperty(USER);
+        String password = props.getProperty(PASSWORD);
 
-        String connectionString = "jdbc:postgresql://"+host+":"+port+"/"+service;
+        String connectionString = "jdbc:postgresql://"+host+":"+port+"/"+service+"?user="+user+"&password="+password;
 
         System.out.println("Connection String ==> " + connectionString);
 
         return connectionString;
     }
 
-    static {
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Paso algo con el HP driver");
-        }
-    }
-
     @Override
     public Connection getConnection() {
         try {
             Properties props = PropsUtil.loadPropertyFile(DB_PROPS);
-            String user = props.getProperty(USER);
-            String password = props.getProperty(PASSWORD);
             String connectionString = this.createConnectionString();
-            Connection con = DriverManager.getConnection(connectionString, user, password);
+            Connection con = DriverManager.getConnection(connectionString);
             System.out.println("Connection class ==> " + con.getClass().getName());
 
             return con;
