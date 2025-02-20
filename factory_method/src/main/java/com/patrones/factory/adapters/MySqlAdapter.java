@@ -7,7 +7,7 @@ import java.util.Properties;
 import com.patrones.factory.interfaces.IAdapter;
 import com.patrones.utils.PropsUtil;
 public class MySqlAdapter implements IAdapter {
-    private static final String DB_PROPS = "properties/mysql.properties";
+    private static final String DB_PROPS = "properties/mysql.secret.properties";
 
 
     // Props names for MySQL connection

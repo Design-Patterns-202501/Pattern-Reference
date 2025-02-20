@@ -13,6 +13,20 @@ public class App {
         List<Article> articles = articlesDAO.findAllProducts();
         Integer size = articles.size();
 
-        System.out.println("Articles n ==> " + size.toString());
+        System.out.println("\nArticles n ==> " + size.toString());
+
+        boolean confirm  = articlesDAO.SaveProduct(
+                new Article(new Long(1), "Articulo", 3.21)
+                );
+
+        if (!confirm) {
+            System.out.println("Something went bad");
+            return;
+        }
+
+        articles = articlesDAO.findAllProducts();
+        size = articles.size();
+
+        System.out.println("\nArticles n ==> " + size.toString());
     }
 }

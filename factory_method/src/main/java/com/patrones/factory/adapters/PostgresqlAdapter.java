@@ -34,10 +34,8 @@ public class PostgresqlAdapter implements IAdapter {
         String host = props.getProperty(HOST);
         String port = props.getProperty(PORT);
         String service = props.getProperty(SERVICE);
-        String user = props.getProperty(USER);
-        String password = props.getProperty(PASSWORD);
 
-        String connectionString = "jdbc:postgresql://"+host+":"+port+"/"+service+"?user="+user+"&password="+password;
+        String connectionString = "jdbc:postgresql://"+host+":"+port+"/"+service;
 
         System.out.println("Connection String ==> " + connectionString);
 
@@ -48,8 +46,10 @@ public class PostgresqlAdapter implements IAdapter {
     public Connection getConnection() {
         try {
             Properties props = PropsUtil.loadPropertyFile(DB_PROPS);
+            String user = props.getProperty(USER);
+            String password = props.getProperty(PASSWORD);
             String connectionString = this.createConnectionString();
-            Connection con = DriverManager.getConnection(connectionString);
+            Connection con = DriverManager.getConnection(connectionString, user, password);
             System.out.println("Connection class ==> " + con.getClass().getName());
 
             return con;
