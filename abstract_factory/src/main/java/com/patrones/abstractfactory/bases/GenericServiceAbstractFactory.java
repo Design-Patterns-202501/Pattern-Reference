@@ -8,7 +8,7 @@ public class GenericServiceAbstractFactory {
     
     public static IGenericBaseService createServiceFactory() {
 
-        Properties props = AccessUtils.loadProperties("properties/factory.properties");
+        Properties props = AccessUtils.loadProperties("factory.properties");
         String factoryClass = props.getProperty("implemented");
 
         try {
