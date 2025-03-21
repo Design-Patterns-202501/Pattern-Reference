@@ -14,6 +14,7 @@ public class SingletonThread extends Thread {
 
         PropsSingleton obj = PropsSingleton.getInstance();
         obj.setApplicationVersion("Version thread " + _id);
-        System.out.println("Thread" + _id + "executed");
+        System.out.println("Thread " + _id + " executed");
+        System.out.println(obj);
     }
 };
