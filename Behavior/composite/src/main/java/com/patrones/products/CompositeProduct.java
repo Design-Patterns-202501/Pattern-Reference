@@ -17,7 +17,8 @@ public class CompositeProduct extends ProductAbstract {
         for (ProductAbstract product: products) {
             sum += product.getPrice();
         }
-        return sum;
+        double subtotal = sum*ammount;
+        return subtotal + subtotal*fee;
     }
     
     @Override

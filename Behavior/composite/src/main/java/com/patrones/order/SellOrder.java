@@ -13,7 +13,6 @@ public class SellOrder {
     private List<ProductAbstract> products = new ArrayList<>();
 
     public SellOrder(String orderCode, String client) {
-        super();
         this.orderCode = orderCode;
         this.client = client;
     }
