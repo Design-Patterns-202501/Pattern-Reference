@@ -60,8 +60,7 @@ public class SellOrder {
                 + "\nCodigo_Orden: " + this.orderCode + "\nCliente: " + this.client 
                 + "\nProductos:\n");
         for (ProductAbstract prod : products) {
-            System.out.println(prod.getName() + "\t\t\t$ " 
-                    + formater.format(prod.getPrice()));
+            System.out.println(prod.printProduct());
         }
         System.out.println("Total: " + formater.format(getPrice()) 
                 + "\n=============================================");

@@ -21,10 +21,6 @@ public class CompositeProduct extends ProductAbstract {
         return subtotal + subtotal*fee;
     }
     
-    @Override
-    public void setPrice(double price) {
-        throw new UnsupportedOperationException();
-    }
 
     public void addProduct(ProductAbstract product) {
         this.products.add(product);
@@ -32,5 +28,12 @@ public class CompositeProduct extends ProductAbstract {
 
     public boolean removeProduct(ProductAbstract product) {
         return this.products.remove(product);
+    }
+
+    @Override
+    public String printProduct() {
+        StringBuilder builder = new StringBuilder(name + "\t\t\t$ " + getPrice() + "\n");
+        for (ProductAbstract prod: products) builder.append("\t" + prod.printProduct());
+        return builder.toString();
     }
 };

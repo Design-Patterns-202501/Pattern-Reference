@@ -10,6 +10,7 @@ public abstract class ProductAbstract {
 	public ProductAbstract(String name, double price) {
         this.name = name;
         this.price = price;
+        this.ammount = 1;
     }
 
 	public String getName() {
@@ -38,4 +39,8 @@ public abstract class ProductAbstract {
 	public void setAmmount(int ammount) {
 		this.ammount = ammount;
 	}
+
+    public String printProduct() {
+        return name + "\t\t\t$ " + getPrice() + "\n";
+    };
 };
